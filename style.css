@@ -1,0 +1,249 @@
+:root {  
+    --purple: #9200C6;
+    --blue: #0015CA;
+    --b-low: #40d7fd;
+    --primary: #ffffff;
+    --secondary: #00051f;
+  }
+.day{
+  --primary: #00051f;
+  --secondary: #ffffff;
+}
+*{
+    font-family: 'Anonymous Pro', monospace;
+    color: var(--primary);
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background-color: var(--secondary);
+    margin: 0rem;
+    transition: background 1.2s;
+}
+
+section{
+    height: 100vh;
+}
+
+/* blob */
+@keyframes rotate {
+    from {
+        rotate: 0deg;
+    }
+    50% {
+        scale: 1 1.5;
+    }
+    to {
+        rotate: 360deg;
+    }
+    }
+#blob {
+	height: 25vmax;
+	aspect-ratio: 1;
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	translate: -50% -50%;
+	border-radius: 50%;
+	background: linear-gradient(to right, var(--blue), var(--purple));
+	animation: rotate 30s infinite;
+	opacity: 0.8;
+	z-index: -3;
+}
+#blur {
+	height: 100%;
+	width: 100%;
+	position: fixed;
+	z-index: -2;
+	backdrop-filter: blur(12vmax);
+}
+
+.home{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+}
+#e{
+    font-size: 9vw;
+    font-weight: 600;
+}
+.home p{
+    font-size: 4vw;
+    font-weight: 200;
+    margin: 0;
+}
+
+.aboutme {
+    display: inline-block;
+    width: 81px;
+    height: 81px;
+    line-height: 81px;
+    text-align: center;
+    border-radius: 50%;
+    background-color: var(--purple); /* You can change the color code here */
+    text-decoration: none;
+    float: right;
+}
+#lang h1, #proj h1{
+	font-size: 3vw;
+	padding: 20px;
+}
+#lang p, #proj p{
+	font-size: 1.7vw;
+	padding: 20px;
+	margin-top: -40px;
+}
+.navbar{
+    position: fixed;
+    top:0;
+    right: 25px;
+}
+
+.navlinks{
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+.navlinks li{
+    list-style: none;
+}
+
+.navlinks a{
+    text-decoration: none;
+}
+
+.burger-container{
+    position: fixed;
+    display: flex;
+    top: 0;
+    right: 0;
+    z-index: 5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.burger{
+    display: none;
+    padding-top: 11px;
+    padding-right: 11px;
+}
+
+#light-dark{
+    margin: 11px;
+}
+
+.burger div{
+    width: 25px;
+    height: 4px;
+    margin: 5px;
+    background-color: var(--primary);
+}
+
+.navbar a:hover,
+a.active{
+  color: var(--b-low)
+}
+.nav-active{
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade{
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.toggle .line1{
+    transform: rotate(-45deg) translate(-5px, 7px);
+}
+.toggle .line2{
+    opacity: 0;
+}
+.toggle .line3{
+    transform: rotate(45deg) translate(-5px, -7px);
+}
+
+.container-c{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px;
+    padding-right: 100px;
+}
+
+.contact{
+    flex: 50%;
+}
+
+.phone{
+    flex: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+#mail{
+    cursor: pointer;
+    border-radius: 10px;
+    padding: 40px;
+    width: 80px;
+    background-color: var(--b-low);
+    margin: 0 auto;
+}
+#mail span{
+	font-size:80px;
+}
+
+@media screen and (max-width:768px){
+    body{
+        overflow-x: hidden;
+    }
+    .navlinks{
+        transform: translateX(0%);
+        transition: transform 0.5s ease-in;
+    }
+    .navlinks li {
+        opacity: 0;
+    }
+    .burger {
+        display: block;
+    }
+    #blob{
+        display: none;
+    }
+}
+::-webkit-scrollbar{
+    width: 0;
+  }
+  #bar{
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 10px;
+      height: 100%;
+      background: linear-gradient(to top, var(--blue), var(--purple));
+  }
+
+path {
+    stroke: var(--primary);
+    stroke-dasharray: 290;
+    stroke-dashoffset: 130;
+    animation: dash 9s 3s forwards infinite;
+  }
+  
+@keyframes dash {
+    from {
+      stroke-dashoffset: 290;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+}
